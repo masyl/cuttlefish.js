@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery.js"></script>
+        <script src="model.js"></script>
+        <script src="funex.js"></script>
+        <script src="webcomponents.js"></script>
+        <element name="block-seeAlso" src="./components/blocks.html"></element>
+        <element name="block-buttons" src="./components/blocks.html"></element>
+        <element name="block-menu" src="./components/blocks.html"></element>
+        <element name="CTAButton" src="./components/CTAButton/index.html"></element>
+        <element name="repeater" src="./components/repeater.html"></element>
+        <element name="itemList" src="./components/itemList.html"></element>
+        <element name="label" src="./components/label.html"></element>
+        <element name="pageHeader" src="./components/pageHeader.html"></element>
+        <element name="pageLayout" src="./components/pageLayout.html"></element>
+        <element name="if" src="./components/if.html"></element>
+    </head>
+    <body>
+        <div is="pageLayout">
+            <h1 is="pageHeader"></h1>
+            <div is="block-menu"></div>
+            <p>
+                Hydro-Québec estime le coût annuel de votre consommation d'électricité et le répartit en douze mensualités, sans aucun frais.
+            </p>
+
+            <ul is="itemList">
+                <li is="repeater" scope="items"><span is="label" value="toString()"></span></li>
+            </ul>
+
+            <p>
+                Une fois inscrit au service Paiement Internet, à partir de quand puis-je autoriser des paiements ? Vous pouvez autoriser des paiements le jour même de votre inscription. Vous pouvez acquitter ainsi votre dernière facture papier si vous le souhaitez. Puis-je autoriser des paiements à l'avance ? Oui. Vous pouvez programmer des paiements jusqu'à six mois d'avance.
+            </p>
+
+            <a href="/overlay/residentiel/gerer-votre-compte/mode-de-versements-egauoverlay">
+                Modalités du mode de versements égaux
+            </a>
+
+            <div is="spacer" size="2"></div>
+            <div is="block-buttons"></div>
+            <div is="block-seeAlso"></div>
+
+            <hr is="separator" />
+
+            <div>
+                <div is="if" if="booleans.isTrue">
+                    This line should be visible!
+                </div>
+            </div>
+
+            <div>
+                <div is="if" if="booleans.isFalse">
+                    This line should be hidden!
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<elements>
+    <element name="repeater">
+        <template><content></content></template>
+        <script>
+            controller("repeater", function (model, domain) {
+                var $el = $(this);
+                var fScope = funex($el.attr("scope") || "");
+                var scope = fScope(model);
+                $.each(scope, function (index, value) {
+                    var $repeated = $el.clone();
+                    $el.after($repeated);
+                    domain.render($repeated, value);
+                })
+               $el.remove();
+            });
+        </script>
+    </element>
+
+</elements>
