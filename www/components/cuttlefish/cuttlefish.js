@@ -223,18 +223,32 @@
 		})
 	}
 
+	function getElementsSelector(components) {
+		// Compound a selector to match elements in the domain
+		var tagNames = [];
+		var component;
+		for (component in components) {
+			tagNames.push(components[component].name);
+		}
+		return tagNames.join(",");
+	}
+
 	Domain.prototype.render = function (el, model) {
 		var domain = this;
+		var elementsSelector = getElementsSelector(domain.components);
+		console.log("elementsSelector: ", elementsSelector);
 
 		// Iterate through each component instances
-		var firstLevelElements = $(el).find("[is]")
-			.filter(function () {
-				return $(this).parents('[is]').length === 0;
+		var firstLevelElements = $(el).find("[is], " + elementsSelector);
+
+		firstLevelElements.filter(function () {
+				return $(this).parents("[is], " + elementsSelector).length === 0;
 			});
 			firstLevelElements.each(renderComponent);
 
 		function renderComponent() {
-			var name = $(this).attr("is");
+			var name = $(this).attr("is") || this.tagName;
+			name = name.toLowerCase();
 			var component = domain.components[name];
 			if (component) {
 				component.render(this, model, domain);
