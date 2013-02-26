@@ -1,6 +1,6 @@
 {
   "name": "cuttlefish.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Templating and Components inspired by the Web Components proposal",
   "main": "webcomponents.js",
   "scripts": {
