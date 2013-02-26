@@ -1,74 +1,93 @@
 <elements>
-	<!--
-	The global metas
-	-->
-    <element name="page">
-        <template>
-		    <div class="page">
-		    	<content></content>
-		    </div>
-        </template>
-        <style>
-        	.page {
-        		margin-top: 40px;
-        	}
-        </style>
-    </element>
+	<element name="page">
+		<template>
+			<div class="page">
+				<div class="row">
+					<div class="span9">
+						<div class="row">
+							<content></content>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<style>
+		.page {
+			margin-top: 40px;
+		}
+		</style>
+	</element>
+
+	<element name="sidebar">
+		<template>
+			<div class="span3 sidebar">
+				<content></content>
+			</div>
+		</template>
+	</element>
+
+	<element name="page-content">
+		<template>
+			<div class="span6 pageContent">
+				<content></content>
+			</div>
+		</template>
+	</element>
 
 	<!--
 	The logo visible on the homepage!
 	-->
-    <element name="logo">
-        <template>
-        	<div class="logo">
-              <img src="images/cuttle-small.png" />
-            </div>
-        </template>
-        <style>
-        	.logo {
-        		text-align: center;
-        		margin-top: 20px;
-        	}
-        </style>
-    </element>
+	<element name="logo">
+		<template>
+			<div class="logo">
+				<img src="images/cuttle-small.png" />
+			</div>
+		</template>
+		<style>
+		.logo {
+			text-align: center;
+			margin-top: 20px;
+		}
+		</style>
+	</element>
 
 	<!--
 	The global metas
 	-->
-    <element name="metas">
-        <template>
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<element name="metas">
+		<template>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		    <!--[if lt IE 9]>
-		      <script src="components/bootstrap/docs/assets/js/html5shiv.js"></script>
-		    <![endif]-->
+			<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+			<!--[if lt IE 9]>
+			<script src="components/bootstrap/docs/assets/js/html5shiv.js"></script>
+			<![endif]-->
 
-        </template>
-    </element>
+		</template>
+	</element>
 
 	<!--
 	-->
-    <element name="main-navigation">
-        <template>
-		    <div class="navbar navbar-fixed-top">
-				<div class="navbar-inner">
-				    <div class="container">
-				      <!-- Be sure to leave the brand out there if you want it shown -->
-				      <a class="brand" href="#">cuttlefish.js</a>
-
-				      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				        <span class="icon-bar">a</span>
-				        <span class="icon-bar">b</span>
-				        <span class="icon-bar">c</span>
-				      </a>
-								    </div>
-				</div>
-		    </div>
-        </template>
-        <style>
-        </style>
-    </element>
+	<element name="navigation">
+		<template>
+			<div class="navbar navbar-fixed-top">
+					<div class="navbar-inner">
+						<a class="brand" href="#">cuttlefish.js</a>
+						<ul class="nav">
+							<li class="active">
+								<a href="#">Introduction</a>
+							</li>
+							<li>
+								<a href="#">API</a>
+							</li>
+						</ul>
+					</div>
+			</div>
+		</template>
+	</element>
 
 </elements>
+
+
+
+

@@ -187,10 +187,14 @@
 			//todo: remove the "is" ttr is temporary ... fix this
 			$oldElement.attr("is", null);
 
+			// // Replace the "content" tag with the old elements
+			// $oldElement.empty();
+			// $oldElement.append($newContent);
+			// $oldElement.find("content").replaceWith($oldContent);
+
 			// Replace the "content" tag with the old elements
-			$oldElement.empty();
-			$oldElement.append($newContent);
-			$oldElement.find("content").replaceWith($oldContent);
+			$newContent.replaceAll($oldElement);
+			$newContent.find("content").replaceWith($oldContent);
 
 			// Call the controller
 			// if (component.name == "repeater") debugger;
