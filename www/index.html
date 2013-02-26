@@ -17,6 +17,7 @@
     <element name="page" src="partials/layout.html"></element>
     <element name="page-content" src="partials/layout.html"></element>
     <element name="sidebar" src="partials/layout.html"></element>
+    <element name="github-button" src="partials/layout.html"></element>
 
     <link href="components/bootstrap/swatch/bootstrap.css" rel="stylesheet">
 
@@ -37,6 +38,47 @@
         <page-content>
 
           <h1>cuttlefish.js</h1>
+
+          <p>
+            Cuttlefish is a javascript implementation of the "web components" standard that will eventually be available natielly in web browsers.
+          </p>
+          <p>
+            Because of the limitations of current and older browsers, cuttlefish cannot implement the proposed standard "as is". Instead this library tries to respect the spirit of web component while making compromises that make it practical for a wide variety of usage scenarios.
+          </p>
+
+          <h3>Which Web Components Standard ?</h3>
+          <p>
+            There are many innitiatives that currently label themselve as "web components". The one covered by cuttlefish is described in these documents:
+          </p>
+          <ul>
+            <li>
+              <a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html">
+                Introduction to Web Components
+              </a>
+            </li>
+            <li>
+              <a href="http://html5-demos.appspot.com/static/webcomponents/index.html">
+                Introduction to Web Components Presentation by Eric Bidelman
+              </a>
+            </li>
+          </ul>
+
+          <h3>Download and Contribute</h3>
+          <p>
+            The project is in it's early stage and does not have a "ready-made" build. Instead, we invite
+            you to fork our GitHub repository and start playing around!
+          </p>
+          <p>
+            Follow us on Github:
+            <br/>
+            <a hrefh="https://github.com/masyl/cuttlefish.js">https://github.com/masyl/cuttlefish.js</a>
+          </p>
+          <github-button></github-button>
+
+          <h3>Project Status</h3>
+          <p>
+            Because the actual limitation of browsers are still to be discovered, the final feature set of cuttlefish is still unclear. Once this exploration phase ends, we will solidify the library with tests and a build process.
+          </p>
 
         </page-content>
     </page>
