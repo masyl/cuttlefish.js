@@ -1,0 +1,76 @@
+<elements>
+    <element name="if">
+        <template>
+                <content></content>
+        </template>
+        <script>
+            controller("if", function(model, domain) {
+                // console.log("model", model);
+                var $el = $(this);
+                // console.log("value", $el.attr("value"), $el);
+                if (typeof($el.attr("if")) !== "undefined") {
+                    var fValue = funex($el.attr("if") || "");
+                    var value = fValue(model);
+                    if (value) {
+                        domain.render($el, value);
+                    } else {
+                        $el.remove();
+                    }
+                } else {
+                        $el.remove();
+                }
+            });
+        </script>
+    </element>
+
+    <element name="label">
+        <template>
+                <content></content>
+        </template>
+        <script>
+            controller("label", function(model) {
+                // console.log("model", model);
+                var $el = $(this);
+                // console.log("value", $el.attr("value"), $el);
+                if (typeof($el.attr("value")) !== "undefined") {
+                    var fValue = funex($el.attr("value") || "");
+                    var value = fValue(model);
+                    // console.log("z", value);
+                    if (typeof(value) === "undefined") value = "undefined";
+                    var newValue = $("<div>" + value.toString() + "</div>");
+                    // console.log("newValue$", newValue);
+                    $el.html(newValue.html());
+                    // console.log("c$", $el);
+                    var $c = $el.contents();
+                    $c.insertAfter($el);
+                } else {
+
+                }
+                $el.remove();
+            });
+        </script>
+    </element>
+
+    <element name="repeater">
+        <template><content></content></template>
+        <script>
+            controller("repeater", function (model, domain) {
+                var $el = $(this);
+                var fScope = funex($el.attr("scope") || "");
+                var scope = fScope(model);
+                $.each(scope, function (index, value) {
+                    var $repeated = $el.clone();
+                    $el.after($repeated);
+                    domain.render($repeated, value);
+                })
+               $el.remove();
+            });
+        </script>
+    </element>
+
+
+
+</elements>
+
+
+

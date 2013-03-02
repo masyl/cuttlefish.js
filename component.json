@@ -1,0 +1,8 @@
+{
+  "name": "cuttlefish.js",
+  "version": "0.0.1",
+  "main": "./path/to/main.css",
+  "dependencies": {
+    "jquery": "~1.7.2"
+  }
+}

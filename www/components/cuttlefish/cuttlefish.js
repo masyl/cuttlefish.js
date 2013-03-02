@@ -1,28 +1,3 @@
-/*
-	todo: prevent infinite recursion
-	todo: load "all" components from a files wihtout specifying them one by one
-	todo: test if dynamic metas and conditionnal comment work in all browsers!
-	todo: find a way to group components as sets
-	todo: Find a way to output easier than toString()
-	todo: async loading/rendering of components
-	todo: Support for constructor attribute
-	todo: Support for extend attribute
-	todo: As each element is replaced, a non-bubbling, non-cancellable event is dispatche
-	todo: Lifecycle Methods or functions instead of "controller()"
-	todo: error handling with event emmiters
-	todo: find a good way to encapsulate CSS without explicitly adding a class
-	todo: example with paths to component images assets
-	todo: Warning on missing component
-	todo: Configurable default dehavior on missing components
-	todo: Refer to "elements" with src instead of single element
-	todo: Test how to remove dependency on jQuery (real problem is jQuery versions)
-	todo: "build number" scheme for invalidating/breaking the component cache
-
-
-	done: support for custom tag names "<x-CTAButton>"
-	done: Cache/Memoize external components into the local storage for "sync" execution once cached
-	done: Clear cache on ctrl-f5 and ctrl-r
-*/
 (function() {
 
 	$("body head").append("<style>component {display: none;}</style>")
