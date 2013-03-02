@@ -9,6 +9,7 @@
 	var controllers = {};
 	// Global handler for registering controllers
 	window.controller = function(name, handler) {
+		console.log("Registered ", name);
 		controllers[name] = handler;
 	};
 
@@ -60,6 +61,9 @@
 		var prefix = cachingKeyPrefix + component.name;
 
 		function loadFromSource(source, maxAge) {
+			source = source.replace(/\<script /g, "<x-script ");
+			source = source.replace(/\<script>/g, "<x-script>");
+			source = source.replace(/\<\/script>/g, "</x-script>");
 			if (localStorage) {
 				localStorage[prefix] = source;
 				localStorage[prefix + "-timestamp"] = Date.now();
@@ -129,8 +133,14 @@
 				*/
 				// Put the current element in a global var to be catched later
 				// by the "controller()" helper function
+				console.log("INJECTING SRCIPT---------");
 				$("<script>window.ControllerInScope = '" + component.name + "';</script>").appendTo("html > head");
+				console.log(window.ControllerInScope);
+//				console.log(component.el.html());
 				component.el.appendTo("html > head");
+
+				var src = component.el.find("x-script").html();
+				component.el.find("x-script").replaceWith("<script>" + src + "</script>");
 			}
 
 //			console.log("Component is ready: " + component.name, el);
@@ -174,7 +184,7 @@
 			// Call the controller
 			// if (component.name == "repeater") debugger;
 			if (component.controller) {
-				component.controller.call($oldElement, model, domain);
+				component.controller.call($newContent, model, domain, $oldElement);
 			}
 
 			// render any unrendered tags
@@ -218,7 +228,7 @@
 	Domain.prototype.render = function (el, model) {
 		var domain = this;
 		var elementsSelector = getElementsSelector(domain.components);
-		console.log("elementsSelector: ", elementsSelector);
+//		console.log("elementsSelector: ", elementsSelector);
 
 		// Iterate through each component instances
 		var firstLevelElements = $(el).find("[is], " + elementsSelector);

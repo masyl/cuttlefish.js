@@ -24,6 +24,12 @@
 				<content></content>
 			</div>
 		</template>
+        <script>
+            controller("sidebar", function(model, domain) {
+                console.log("sidebar!!!!!!!!!!!");
+                domain.render($(this), model);
+            });
+        </script>
 	</element>
 
 	<element name="page-content">

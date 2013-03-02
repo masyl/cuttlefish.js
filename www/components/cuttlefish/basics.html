@@ -5,6 +5,7 @@
         </template>
         <script>
             controller("if", function(model, domain) {
+                console.log("WTF");
                 // console.log("model", model);
                 var $el = $(this);
                 // console.log("value", $el.attr("value"), $el);
@@ -51,10 +52,26 @@
         </script>
     </element>
 
+
+    <element name="editable">
+        <template>
+            <div class="is-editable"><content></content></div>
+        </template>
+        <script>
+            controller("editable", function(model, domain, oldElem) {
+                // console.log("model", model);
+                var id = oldElem[0].id;
+                this.attr("id", id);
+                domain.render(this, model);
+            });
+        </script>
+    </element>
+
     <element name="repeater">
         <template><content></content></template>
         <script>
             controller("repeater", function (model, domain) {
+                console.log("WTF3");
                 var $el = $(this);
                 var fScope = funex($el.attr("scope") || "");
                 var scope = fScope(model);

@@ -1,8 +1,38 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>cuttlefish.js</title>
+
+    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css" media="screen">
+    .editor {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        z-index: 99999;
+        border: 3px solid #000;
+        background: #000;
+        display: none;
+    }
+    #editorContent {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 35px;
+        left: 0px;
+    }
+    .editor .buttons {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        left: 3px;
+        height: 33px;
+    }
+</style>
 
     <script src="components/jquery/jquery.js"></script>
     <script src="components/funex/funex.js"></script>
@@ -10,6 +40,7 @@
 
     <elements src="partials/layout.html"></elements>
 
+    <element name="editable" src="components/cuttlefish/basics.html"></element>
 
     <element name="logo" src="partials/layout.html"></element>
     <element name="navigation" src="partials/layout.html"></element>
@@ -19,7 +50,7 @@
     <element name="sidebar" src="partials/layout.html"></element>
     <element name="github-button" src="partials/layout.html"></element>
 
-    <link href="components/bootstrap/swatch/bootstrap.css" rel="stylesheet">
+    <link href="components/bootstrap/swatch/bootstrap.css" rel="stylesheet" />
 
     <script src="js/main.js"></script>
 
@@ -28,6 +59,7 @@
   </head>
 
   <body>
+    <label>wha!</label>
     <navigation></navigation>
     <page>
         <sidebar>
@@ -36,16 +68,15 @@
 
         </sidebar>
         <page-content>
-
-          <h1>cuttlefish.js</h1>
-
-          <p>
-            Cuttlefish is a javascript implementation of the "web components" standard that will eventually be available natielly in web browsers.
-          </p>
-          <p>
-            Because of the limitations of current and older browsers, cuttlefish cannot implement the proposed standard "as is". Instead this library tries to respect the spirit of web component while making compromises that make it practical for a wide variety of usage scenarios.
-          </p>
-
+          <editable id="introduction1">
+            <h1>----cuttlefish.js is Awesome!</h1>
+            <p>
+              Cuttlefish is a javascript implementation of the "web components" standard that will eventually be available natielly in web browsers.
+            </p>
+            <p>
+              Because of the limitations of current and older browsers, cuttlefish cannot implement the proposed standard "as is". Instead this library tries to respect the spirit of web component while making compromises that make it practical for a wide variety of usage scenarios.
+            </p>
+          </editable>
           <h3>Which Web Components Standard ?</h3>
           <p>
             There are many innitiatives that currently label themselve as "web components". The one covered by cuttlefish is described in these documents:
@@ -70,10 +101,12 @@
           </p>
           <p>
             Follow us on Github:
-            <br/>
+            <br />
             <a hrefh="https://github.com/masyl/cuttlefish.js">https://github.com/masyl/cuttlefish.js</a>
           </p>
-          <github-button></github-button>
+          <editable id="githubButton1">
+            <github-button></github-button>
+          </editable>
 
           <h3>Project Status</h3>
           <p>
@@ -84,4 +117,4 @@
     </page>
 
   </body>
-</html>
+<script class="jsdom" src="http://code.jquery.com/jquery.js"></script><script class="jsdom" src="http://code.jquery.com/jquery.js"></script><script class="jsdom" src="http://code.jquery.com/jquery.js"></script><script class="jsdom" src="http://code.jquery.com/jquery.js"></script></html>
